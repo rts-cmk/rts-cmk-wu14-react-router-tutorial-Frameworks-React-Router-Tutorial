@@ -10,7 +10,8 @@ export default function Contact() {
                 <input placeholder="Besked" type="text" name="" id="" />
                 <input placeholder="Navn" type="text" name="" id="" />
                 <input placeholder="Mail" type="text" name="" id="" />
-                <button onClick={() => {
+                <button onClick={(onClick) => { 
+                    onclick.preventDefault()
                     navigateHome("/Tak")
                 }}>Send</button>
             </div>
