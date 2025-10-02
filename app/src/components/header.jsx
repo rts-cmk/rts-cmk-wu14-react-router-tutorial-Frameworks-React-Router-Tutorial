@@ -1,3 +1,4 @@
+import { NavLink } from "react-router"
 import { useNavigate } from "react-router"
 import NavBar from "./Navbar.jsx"
 export default function Header() {
@@ -6,11 +7,7 @@ export default function Header() {
         <>
             <header>
                 <div className="header-wrapper">
-
-                    <a href="na">
-                    <h1 className="header-title">React Router</h1>
-                    </a>
-
+                     <a href="/"><h1 className="header-title">React <span className="router-span">Router</span></h1></a>
                     <NavBar />
                 </div>
             </header>

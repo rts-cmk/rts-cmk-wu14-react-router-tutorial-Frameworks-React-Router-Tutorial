@@ -1,24 +1,32 @@
 
 .header-wrapper {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 10px 0;
-    box-shadow: 0 4px 2px -2px rgb(77, 77, 77);
+    padding: 10px;
+    box-shadow: 0 4px 2px -2px rgb(67, 67, 67);
+}
+.header-title {
+    font-size: 32px;
 }
 
 .header-wrapper a {
     color: white;
     text-decoration: none;
 }
+.router-span {
+    color: rgb(255, 81, 81);
+}
 /* NavBar */
 .nav-bar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 20px;
+    gap: 25px;
 }
 .nav-bar a {
+    font-size: 20px;
     position: relative;
     padding-bottom: 3px;
 }
@@ -33,5 +41,8 @@
 }
 .nav-bar a:hover::after {
     transition: width 0.3s ease-in-out;
+    width: 100%;
+}
+.active ::after {
     width: 100%;
 }

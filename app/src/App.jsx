@@ -16,7 +16,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/About" element={<About />} />
         <Route path="/Contact" element={<Contact />} />
-        <Route path="*" element={<h1>Siden findes ikke</h1>} />
+        <Route path="*" element={<h1>Error 404</h1>} />
       </Routes>
     </div>
   );
