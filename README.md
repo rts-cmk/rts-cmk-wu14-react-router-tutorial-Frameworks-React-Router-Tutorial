@@ -1,9 +1,11 @@
 # Opgave: Lav en tutorial om React Router
 
 ## Formål
+
 Du skal lave en pædagogisk og teknisk korrekt tutorial, der viser hvordan man bruger [React Router](https://reactrouter.com/) til at navigere mellem sider i en React-applikation. Målet er at formidle din viden, så andre elever eller udviklere kan lære af din vejledning.
 
 ## Læringsmål
+
 - Forstå og anvende React Router til routing i en [SPA (Single Page Application)](https://reactrouter.com/en/main/start/tutorial)
 - Forklare centrale begreber som [`<BrowserRouter>`](https://reactrouter.com/en/main/router-components/browser-router), [`<Routes>`](https://reactrouter.com/en/main/router-components/routes), [`<Route>`](https://reactrouter.com/en/main/router-components/route), og [`useNavigate`](https://reactrouter.com/en/main/hooks/use-navigate)
 - Demonstrere hvordan man opretter og strukturerer flere sider i en React-app
@@ -11,6 +13,7 @@ Du skal lave en pædagogisk og teknisk korrekt tutorial, der viser hvordan man b
 - Publicere en fungerende tutorial online
 
 ## Opgavekrav
+
 Du skal:
 
 1. **Introducere React Router**  
@@ -37,8 +40,38 @@ Du skal:
    - Skriftlig guide med kodeeksempler og screenshots
 
 ## Evalueringskriterier
+
 - Klar og korrekt teknisk forklaring
 - Brug af relevante React Router-komponenter
 - Struktur og layout af tutorial
 - Evne til at formidle til målgruppen (andre elever)
 - Fungerende og tilgængelig publicering online
+
+## Min Tutorial
+1. **Hvorfor React Router**
+   Vi bruger React Router for at kunne skifte indholdet på siden, uden at skulle refresh siden, da det er mere brugervenligt så brugeren ikke sidder og skal vente på en hel hvid og blank side
+
+
+2. **Instalation, og konfiguration**
+   Man skal starte med at downloade Vite igennem terminalen med npm med commanden 'npm create vite@latest', der er det vigtigt man vælger react, øvrige valg er op til dig selv. Derefter skal man køre, igen i terminalen, 
+   ```sh
+   npm i react-route.
+   ```
+
+   Så skal du render en `<BrowserRouter>` rundt om de functioner der skal displays på din side
+   
+   ```js
+   import ReactDOM from "react-dom/client";
+   import { BrowserRouter, Routes, Route } from "react-router";
+   import App from "./App.jsx";
+
+   const root = document.getElementById("root");
+
+   ReactDOM.createRoot(root).render(
+      <BrowserRouter>
+         <App />
+      </BrowserRouter>
+   );
+   ```
+3. **Oprette flere sider**
+   Nu har jeg oprettet flere sider, som man kan navigere til uden at refreshe siden, ved hjælp af routes som f.eks. `<Route path="hej" element="<App />" />`, så ville man bruge `<Link to="hej"></Link`

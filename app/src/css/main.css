@@ -1,0 +1,34 @@
+.wrapper {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.codeblock-line::before {
+  content: attr(data-line-number);
+  display: inline-block;
+  margin-right: 1em;
+  width: 1em;
+}
+
+.code span {
+  display: block;
+}
+
+.vite {
+  color: rgb(218, 43, 218);
+}
+
+pre {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+section {
+  margin-top: 2.5rem;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  border-bottom: 2px solid rgb(137, 137, 137);
+  padding: 0.5rem;
+}

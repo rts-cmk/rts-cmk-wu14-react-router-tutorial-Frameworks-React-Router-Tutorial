@@ -1,0 +1,47 @@
+@import url("./main.css");
+@import url("./header.css");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+    background-color: rgb(18 18 18);
+    color: rgb(188 188 188);
+}
+
+h1,
+h2 {
+    color: white;
+}
+
+a {
+    position: relative;
+    padding-bottom: 3px;
+    color: rgb(0, 178, 0);
+    text-decoration: none;
+}
+a::after {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1.5px;
+    background-color: white;
+}
+.vite::after {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1.5px;
+    background-color: rgb(218, 43, 218);
+}
+a:hover::after {
+    transition: width 0.5s ease-in-out;
+    width: 100%;
+}
