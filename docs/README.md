@@ -265,6 +265,8 @@ createRoot(document.getElementById('root')).render(
 vi har nu importert og indsat vores about side Komponent ind i vores router
 vi kan nu gå til vores about page uden problemer.
 
+### Layouts
+
 Hov! hvor blev vores links af?
 Da vi kun tilføjede vores links til vores start side, så kan vi ikke se dem på vores about side.
 Men det kan vi fikse med Layouts. Layouts lader os lave et komponet som vores side ligger inden i.
@@ -319,6 +321,65 @@ createRoot(document.getElementById('root')).render(
 ```
 Her ligger vi vores 2 routes ind endu et Route komponent, som kun får et Komponent,
 der siger til react router at det her er bare et layout den skal bruge hvis nogle af dens under routes matcher.
+
+### 404
+men hvad nu hvis folk ender på en side som vi ikke har defineret?
+så få brugeren bare blank side uden nogen info om hvorfor de ikke kan se noget.
+
+så her skal vi bruge en catchall route (react routers documentation kalder det en splat).
+
+
+lav din 404 side
+```jsx
+// src/pages/404.jsx
+import { useNavigate } from "react-router"
+
+export default function NotFound() {
+    const navigate = useNavigate();
+
+    return (
+        <div>
+            <h1>404 - Page Not Found</h1>
+            <p>The page you are looking for does not exist.</p>
+            <button onClick={() => navigate(-1)}>Go Back</button>
+            <button onClick={() => navigate('/')}>Go to Home</button>
+        </div>
+    )
+}
+```
+
+her bruger vi ikke Link komponentet men react routers useNavigate hook. den kan vi bruge til at go frem og tilbage i brugeres historik på siden.
+I vores Go Back knap giver vi den parametren -1 som siger at den skal gå 1 gang tilbage i historikken. det er det samme der sker nå du trykker på pilene der typisk er placeret i top venstre hjørne af din browser.
+Navigate funktionen kan også modtage en string til den path du gerne navigere til, i det her tilfælde til vores start side
+
+```jsx
+// src/main.js
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import { BrowserRouter, Routes, Route } from 'react-router'
+import './index.css'
+import App from './App.jsx'
+
+import AboutPage from './pages/about.jsx'
+import Layout from "./layout.jsx"
+import NotFound from './pages/404.jsx'
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route path="/" element={<App />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  </StrictMode>
+)
+```
+
+Her her vi tilføjet en ny route men en path der hedder *, stjernen betyder "Hvad som helst". men react router er så klog et den fortrækker de navngivene routes end vores catch all
 
 
 
