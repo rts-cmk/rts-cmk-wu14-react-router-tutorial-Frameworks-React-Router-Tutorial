@@ -1,12 +1,15 @@
 import React from "react"
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router";
+
 import App from "./App.jsx";
 import About from "./components/about.jsx";
-import "./main.css";
 import Contact from "./components/contact.jsx";
 import NotFound from "./components/notFound.jsx";
 import Tak from "./components/tak.jsx";
+
+import "./css/style.css";
+import "./css/components.css";
 
 const root = document.getElementById("root");
 

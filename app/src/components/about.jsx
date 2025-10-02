@@ -4,7 +4,7 @@ export default function about() {
   return (
     <>
       <h1>Om os:</h1>
-      <p>
+      <p className="aboutP">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia
         tenetur suscipit dolorem obcaecati ea repellendus culpa delectus minus
         veniam, nulla placeat sed iste at veritatis a ut distinctio inventore

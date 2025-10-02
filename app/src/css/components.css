@@ -1,0 +1,67 @@
+.aboutP {
+  max-width: 800px;
+  margin: 0 auto 1.5rem;
+  padding: 0 1rem;
+  text-align: justify;
+}
+
+.kontakt,
+.notFound {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Inputs */
+input {
+  background-color: black;
+  width: 100%;
+  padding: 12px;
+  margin: 0.5rem 0;
+  border: 1px solid rgb(67 67 67);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border 0.2s ease;
+}
+
+input:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+/* Buttons */
+button {
+  background: rgb(0, 178, 0);
+  color: rgb(188 188 188);
+  border: none;
+  padding: 12px 20px;
+  margin-top: 1rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+    scale: 1.1;
+}
+
+/* Error page styling */
+.error {
+  color: #e74c3c;
+  font-size: 2rem;
+  margin-top: 2rem;
+  text-align: center;
+}
+
+/* Success / thank you page */
+.success {
+  color: #27ae60;
+  font-size: 1.5rem;
+  margin: 2rem auto;
+  text-align: center;
+}
