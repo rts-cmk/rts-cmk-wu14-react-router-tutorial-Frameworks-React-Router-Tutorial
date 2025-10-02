@@ -3,7 +3,7 @@ react router er en udvikler pakke til react som tilføjer routing til din react 
 
 ## Hvorfor findes react router?
 
-React skaber en SPA (Single page app), det betyder at modsat en normal app skrevet kun med html, css og javascript, så har den kun index.html fil som inholder en smugle html som er nødvendig, og resten af dommen bliver skabt med javascript, det betyder at react har ingen ide om hvilken route den bliver kørt på.
+React skaber en SPA (Single page app), det betyder at modsat en normal app skrevet kun med HTML, CSS og Javascript, så har den kun index.html fil som inholder en smugle HTML som er nødvendig, og resten af dommen bliver skabt med Javascript, det betyder at react har ingen ide om hvilken route den bliver kørt på.
 
 Det lader ogs navigere imellem sider uden at loade vores assets en gang til, det gør at bruger oplevelsen bliver hurtigere og mere flydende
 
@@ -99,7 +99,7 @@ Framework mode er en wrapper på [data mode](#data) igennem et vite plugin.
 
 Det får react router til at fungere næsten som et vert andet framework som next.js, vue.js og svelte-kit.
 ```jsx
-// src/routes.js
+// src/routes.jsx
 import {route} from "@react-router/dev/routes";
 
 export defualt [
@@ -142,16 +142,16 @@ Server renderede sider
 denne tutorial tager udgangspunkt i hvordan man bruger <a href="/#/?id=declarative">Declarative mode</a> . <br>
 Den forventer også du har forstand på
 
-- html
-- css
-- js
-- og en smugle react
+- HTML
+- CSS
+- JS
+- og en smugle React
 
 
 </div>
 
 
-lav et nyt react projekt
+lav et nyt React projekt
 ```sh
 npm create vite --template react react-router-tutorial
 cd react-router-tutorial
@@ -353,7 +353,7 @@ I vores Go Back knap giver vi den parametren -1 som siger at den skal gå 1 gang
 Navigate funktionen kan også modtage en string til den path du gerne navigere til, i det her tilfælde til vores start side
 
 ```jsx
-// src/main.js
+// src/main.jsx
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router'
