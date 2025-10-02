@@ -1,44 +1,123 @@
-# Opgave: Lav en tutorial om React Router
+# React Tutorial
 
-## Formål
-Du skal lave en pædagogisk og teknisk korrekt tutorial, der viser hvordan man bruger [React Router](https://reactrouter.com/) til at navigere mellem sider i en React-applikation. Målet er at formidle din viden, så andre elever eller udviklere kan lære af din vejledning.
+React Router is a library for React that enables navigation between different components or pages
+within a single-page application without reloading the page. Modern apps use it to create fast,
+seamless user experiences by managing URLs, supporting browser history, and enabling smooth transitions between views.
 
-## Læringsmål
-- Forstå og anvende React Router til routing i en [SPA (Single Page Application)](https://reactrouter.com/en/main/start/tutorial)
-- Forklare centrale begreber som [`<BrowserRouter>`](https://reactrouter.com/en/main/router-components/browser-router), [`<Routes>`](https://reactrouter.com/en/main/router-components/routes), [`<Route>`](https://reactrouter.com/en/main/router-components/route), og [`useNavigate`](https://reactrouter.com/en/main/hooks/use-navigate)
-- Demonstrere hvordan man opretter og strukturerer flere sider i en React-app
-- Kommunikere teknisk viden klart og målrettet
-- Publicere en fungerende tutorial online
+First open a terminal and check if `node` and `npm` is installed:
+```bash
+node -v
+npm -v
+```
 
-## Opgavekrav
-Du skal:
+Use `npx create-react-app react-demo --use-npm` to create your first react application.
 
-1. **Introducere React Router**  
-   Forklar kort hvad React Router er, og hvorfor det bruges i moderne webapps.
+Now the `react-demo` directory is present. Change your directory, install `react-router-dom`, and start the server:
+```bash
+cd react-demo
+npm install react-router-dom
+npm start
+```
 
-2. **Installere og konfigurere**  
-   Vis hvordan man installerer React Router via `npm` eller `yarn` og sætter det op i en React-app med [`<BrowserRouter>`](https://reactrouter.com/en/main/router-components/browser-router).
+On another terminal, open your editor-of-choice (e.g. Visual Studio Code),
+and remove every file except `index.css` and `index.js` for brevity, and shorten `index.js` to the following:
+```js
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 
-3. **Oprette flere sider**  
-   Lav mindst tre komponenter (f.eks. Home, About, Contact) og vis hvordan de routes med [`<Route>`](https://reactrouter.com/en/main/router-components/route) og [`<Routes>`](https://reactrouter.com/en/main/router-components/routes).
+import './index.css';
 
-4. **Navigering**  
-   Demonstrer brugen af [`<Link>`](https://reactrouter.com/en/main/components/link) og [`useNavigate`](https://reactrouter.com/en/main/hooks/use-navigate) til at skifte mellem sider.
+const root_node = document.getElementById('root');
+const root = ReactDOM.createRoot(root_node);
 
-5. **Fejlhåndtering og 404-side**  
-   Vis hvordan man håndterer ukendte routes med en fallback-side, typisk ved at bruge en `*`-route i [`<Route>`](https://reactrouter.com/en/main/router-components/route).
+root.render(
+  <React.StrictMode>
+    <div>Hello React!</div>
+  </React.StrictMode>
+);
+```
 
-6. **Publicering**  
-   Din tutorial skal være tilgængelig online via [GitHub Pages](https://docs.github.com/en/pages), [Vercel](https://vercel.com/docs), [Netlify](https://docs.netlify.com/) eller tilsvarende. Link til den færdige tutorial skal afleveres sammen med opgaven.
+You should be able to see `Hello React!` in your browser.
 
-7. **Tutorial-format**  
-   Du vælger selv format:
-   - Video (maks 5 min)
-   - Skriftlig guide med kodeeksempler og screenshots
+Create three new `.js` files named `home.js`, `about.js`, `contact.js`.
 
-## Evalueringskriterier
-- Klar og korrekt teknisk forklaring
-- Brug af relevante React Router-komponenter
-- Struktur og layout af tutorial
-- Evne til at formidle til målgruppen (andre elever)
-- Fungerende og tilgængelig publicering online
+```js
+function Home() {
+  return (
+    <h1>
+      Home
+    </h1>
+  );
+}
+
+export default Home;
+```
+
+And similar structure for `About`, and `Contact`.
+
+Change `index.js` to the following:
+```js
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import './index.css';
+
+import Home from './home.js';
+import About from './about.js';
+import Contact from './contact.js';
+
+const root_node = document.getElementById('root');
+const root = ReactDOM.createRoot(root_node);
+
+root.render(
+  <React.StrictMode>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<h1>404 Not Found</h1>} />
+      </Routes>
+    </Router>
+  </React.StrictMode>
+);
+```
+
+Change the `home.js` file to the following:
+```js
+import { Link } from "react-router";
+
+function Home() {
+  return (
+    <div>
+      <h1>
+        Home
+      </h1>
+      <Link to="/about">About</Link>
+      <Link to="/contact">Contact</Link>
+    </div>
+  );
+}
+
+export default Home;
+```
+
+And the `about` and `contact` page like the following:
+```js
+import { useNavigate } from "react-router";
+
+export default function Contact() {
+  let navigate = useNavigate();
+  return (
+    <div>
+      <h1>About</h1>
+      <button onClick={() => navigate(-1)}>
+        Go Back
+      </button>
+    </div>
+  );
+}
+```
+
+Now the different pages have some interactivity, and the `404 Not Found` page is shown when given a unknown route name.
