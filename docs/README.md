@@ -138,6 +138,10 @@ Server renderede sider
 
 ## Kom godt i gang
 
+?> du kan finde det ferdige resultat af denne tutorial på github [HER](https://github.com/rts-cmk/react-router-tutorial-milas/tree/main/demo)
+
+
+
 <div class="warn">
 denne tutorial tager udgangspunkt i hvordan man bruger <a href="/#/?id=declarative">Declarative mode</a> . <br>
 Den forventer også du har forstand på
@@ -149,6 +153,7 @@ Den forventer også du har forstand på
 
 
 </div>
+
 
 
 lav et nyt React projekt
